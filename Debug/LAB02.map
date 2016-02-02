@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v5.2.6                      
 ******************************************************************************
->> Linked Tue Feb 02 23:24:26 2016
+>> Linked Wed Feb 03 02:12:09 2016
 
 OUTPUT FILE NAME:   <LAB02.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 00000a31
@@ -177,21 +177,21 @@ ffffffff  __c_args__
 00000ad1  abort                   
 ffffffff  binit                   
 00000a81  copy_in                 
-00000379  detectKeyPress          
+00000385  detectKeyPress          
 00000ad9  exit                    
 00000000  g_pfnVectors            
 000002f9  idle                    
-00000353  idle2                   
+00000359  idle2                   
 0000029b  main                    
 2000021c  main_func_sp            
 00000779  memcpy                  
 0000081d  memset                  
 00000335  press                   
-00000361  press2                  
+00000367  press2                  
 20000202  pressed                 
 20000203  pressed2                
-00000337  release                 
-00000363  release2                
+0000033d  release                 
+0000036f  release2                
 20000200  state                   
 20000201  state2                  
 20000208  sw2Status               
@@ -210,11 +210,11 @@ address   name
 0000029b  main                    
 000002f9  idle                    
 00000335  press                   
-00000337  release                 
-00000353  idle2                   
-00000361  press2                  
-00000363  release2                
-00000379  detectKeyPress          
+0000033d  release                 
+00000359  idle2                   
+00000367  press2                  
+0000036f  release2                
+00000385  detectKeyPress          
 000003f7  Timer0IntHandler        
 00000441  GPIOPadConfigSet        
 00000575  SysCtlClockGet          

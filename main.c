@@ -1,3 +1,4 @@
+
 #include <stdint.h>
 #include <stdbool.h>
 #include "inc/tm4c123gh6pm.h"
@@ -52,7 +53,7 @@ int main(void)
 }
 //========================SW!===============================================
 void idle(void){
-	//GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 2);
+
 	if(!pressed){
 	if(ui8LED == 8){
 		ui8LED = 4;
@@ -68,7 +69,7 @@ void idle(void){
 
 }
 void press(void){
-	//GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 4);
+	state = true;
 }
 void release(void){
 	if(pressed){
@@ -78,19 +79,18 @@ void release(void){
 }
 // ====================SW@===========================================
 void idle2(void){
-	//GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 2);
+
 	if(!pressed2){
 		pressed2=true;
 	}
 
 }
 void press2(void){
-	//GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 4);
+	 state2 = true;
 }
 void release2(void){
 	if(pressed2){
 		sw2Status++;
-		//GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 14);
 		pressed2 = false;
 	}
 }
@@ -102,7 +102,7 @@ unsigned char detectKeyPress(void)
 	if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4)==0x00){
 		if(!state){//state==0
 			 press();
-			 state = true;
+
 		}
 		else if(state){
 			release();
@@ -117,7 +117,7 @@ unsigned char detectKeyPress(void)
 	if(GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0)==0x00){
 			if(!state2){//state==0
 				 press2();
-				 state2 = true;
+
 			}
 			else if(state2){
 				release2();
@@ -140,12 +140,5 @@ void Timer0IntHandler(void)
 	// Read the current state of the GPIO pin and
 	// write back the opposite state
 	 detectKeyPress();
-	/*if(GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_2))
-	{
-		GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 2);
-	}
-	else
-	{
-		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 4);
-	}*/
+
 }
